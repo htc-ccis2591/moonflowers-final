@@ -1,4 +1,4 @@
-# DOM Access Assignment
+# Moonflowers Final
 Completing this assignment depends on knowing how to:
 
 - use jQuery to make an ajax request and handle the response
