@@ -10,33 +10,42 @@
 
           $("<h3>Bakery</h3>").insertAfter($menu.children().last());
           $('<ul id="bakery">').insertAfter($menu.children().last());
-          
-          
-         
           // Add code to get the menu data using Ajax
+          $.getJSON("data/menu.json", function (data) {
+           var menuItems = data.menu,
+           count = menu.length;
+              
+           if(menuItems.type === "bakery" && count > 0){
+               $.each(menuItems, function(i, obj){
+                  menuItems.push("<li>" + "<span class =menu-item"> + obj.type + obj.price + "<span/><img src=obj.img><li/>");
+           });
+          }
           // & add the menu items to the appropriate section
           // An example:
           // <li><span class="menu-item">Cappuccino $4.00</span><img src="images/cappuccino.jpg"></li>
 
-      },
+      });
+                    },
       weeklySpecials : function(){
-      $("#specials p").remove();        
-      },
+        
+      
 
 //       Add a new method to add the weekly specials
       $.getJSON("data/specials.json", function (data) {
-      $("#specials p").remove(); 
+    
       
       var specials = data.specials,
       count = specials.length;
       
-      if(count > 0){
+      if(count > 0){  
+      $("#specials p").remove();    
       $.each(specials, function(i, obj){
-      $("#specials").append(obj.description);
+      $("#specials").append("<p>" + obj.description + "<p/>");
+          
   });
 }
  });
-
+},
       // Add a method to validate the registration form
       // There should  be both a name and a valid email
 }
