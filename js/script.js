@@ -5,19 +5,30 @@
       buildMenu : function( data ) {
 
           var $menu = $("#menu");
-          $("<h3>Beverages</h3>").insertAfter($menu.children().last());
+          $('<h3 id ="drinks">Beverages</h3>').insertAfter($menu.children().last());
           $('<ul id="espresso">').insertAfter($menu.children().last());
 
-          $("<h3>Bakery</h3>").insertAfter($menu.children().last());
+          $('<h3 id ="bake">Bakery</h3>').insertAfter($menu.children().last());
           $('<ul id="bakery">').insertAfter($menu.children().last());
           // Add code to get the menu data using Ajax
           $.getJSON("data/menu.json", function (data) {
            var menuItems = data.menu,
-           count = menu.length;
+           count = menuItems.length;
               
-           if(menuItems.type === "bakery" && count > 0){
+           if( count > 0){
                $.each(menuItems, function(i, obj){
-                  menuItems.push("<li>" + "<span class =menu-item"> + obj.type + obj.price + "<span/><img src=obj.img><li/>");
+                   if(obj.type === "bakery"){
+                       $("#bakery").add(obj.name);
+                       
+                       $("#bake").append('<img src="' + obj.img +'">' + obj.name + obj.price);
+                      
+                      
+                   }
+                   if(obj.type === "beverage"){
+                       $("#espresso").add(obj.name);
+                       $("#drinks").append('<img src="' + obj.img +'">' + obj.name + obj.price);
+                   }
+//                  menuItems.push("<li>" + "<span class =menu-item"> + obj.type + obj.price + "<span/><img src=obj.img><li/>");
            });
           }
           // & add the menu items to the appropriate section
