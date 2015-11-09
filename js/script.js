@@ -19,14 +19,23 @@
                $.each(menuItems, function(i, obj){
                    if(obj.type === "bakery"){
                        $("#bakery").add(obj.name);
-                       
-                       $("#bake").append('<img src="' + obj.img +'">' + obj.name + obj.price);
-                      
+                        if(typeof(obj.img)=== "undefined"){
+                         $("#bake").append('<br/>' + obj.name + obj.price);
+                        }
+                       else{   
+                       $("#bake").append('<br/>' + obj.name + obj.price + '<img src="' + obj.img +'">');
+                       }
                       
                    }
                    if(obj.type === "beverage"){
                        $("#espresso").add(obj.name);
-                       $("#drinks").append('<img src="' + obj.img +'">' + obj.name + obj.price);
+                      
+                       if(typeof(obj.img)=== "undefined"){
+                       $("#drinks").append('<br/>' + obj.name + obj.price);
+                       }
+                       else{
+                       $("#drinks").append('<br/>' + obj.name + obj.price + '<img src="' + obj.img +'">');
+                       }
                    }
 //                  menuItems.push("<li>" + "<span class =menu-item"> + obj.type + obj.price + "<span/><img src=obj.img><li/>");
            });
@@ -58,8 +67,20 @@
  });
 },
       // Add a method to validate the registration form
+      $("#register").submit( function() {
+      var vEmail = $("#email").Val();
+      console.log(vEmail);
+      if(vEmail === ""){
+      $("#register").before("<p>Email can't be empty!</p>");
+  }
+    return false;  
+      
+      
+  });
+  }
+  
       // There should  be both a name and a valid email
-}
+
  
 
   // Uncomment the line below to build the menu
