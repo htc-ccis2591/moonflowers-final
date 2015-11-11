@@ -1,4 +1,5 @@
-( function() {
+
+(function() {
 
 
   var coffeeShopApp = {
@@ -66,8 +67,8 @@
 }
  });
 },
-      // Add a method to validate the registration form
-      $("#register").submit( function() {
+//       Add a method to validate the registration form
+      $("#register").submit(function() {
       var vEmail = $("#email").Val();
       console.log(vEmail);
       if(vEmail === ""){
@@ -77,6 +78,9 @@
       
       
   });
+    
+ 
+
   }
   
       // There should  be both a name and a valid email
