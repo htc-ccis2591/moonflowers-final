@@ -68,20 +68,31 @@
  });
 },
 //       Add a method to validate the registration form
-      $("#register").submit(function() {
-      var vEmail = $("#email").Val();
+      registerEmail: function() {
+      var vEmail = $("#email").val();
+      var vName = $("#name").val();      
       console.log(vEmail);
+      console.log(vName);  
       if(vEmail === ""){
-      $("#register").before("<p>Email can't be empty!</p>");
+      $("#register").addClass("red").before("<p>Email can't be empty!</p>");
   }
-    return false;  
+          
       
+      if((vName).length <2){
+       $("#register").before("<p>Name can't be less then 2 characters!</p>").addClass("red");   
+      }
+          return false;
+          
       
-  });
+  }
+      
+  }
+  
+  $("#register").submit(coffeeShopApp.registerEmail);
     
  
 
-  }
+  
   
       // There should  be both a name and a valid email
 
