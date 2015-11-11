@@ -1,18 +1,14 @@
-/* type selectors */
 article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
-
 body {
   margin-top: 50px;
 	font-family: Papyrus, fantasy;
 }
-
 header {
   font-size: 125%;
   padding: 20px;
 }
-
 section h2 {
   background-color: #cccccc;
   width: 100%;
@@ -20,32 +16,25 @@ section h2 {
   padding: 10px;
   text-align: center;
 }
-
 aside {
 	margin: 50px 20px 10px 0;
 }
-
 section {
 	padding: 15px 25px;
 }
-
 .menu-item {
   font-size: 120%;
 	cursor: pointer;
 }
-
 img {
     display: block;
 }
-
 .hide {
 	display: none;
 }
-
 ul {
 	padding-left: 45px;
 }
-
 li {
 	padding-bottom: .25em;
 }
