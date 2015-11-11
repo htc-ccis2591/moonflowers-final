@@ -6,29 +6,22 @@
     var coffeeShopApp = {
         buildMenu: function (data) {
 
-    //page 231 Listing 10.3.2
+            //page 231 Listing 10.3.2
 
-    // Add code to get the menu data using Ajax
-    // & add the menu items to the appropriate section
+            // Add code to get the menu data using Ajax
+            // & add the menu items to the appropriate section
 
             $.getJSON('data/menu.json', function (data) {
                 var menuItem = data.menu,
-                count = menuItem.length;
+                    count = menuItem.length;
                 $('#espresso').empty();
-                
-        //showImg: function () {
-        var $menu = $("#menu");
-        //var $espresso = $("#espresso");
-        $("<p>Click a menu item to view a picture.</p>").insertAfter($menu.children().last());
-        var $menuItem = $(".menu-item");
-        $menuItem.next().attr("class", "hide");
-                
-        $menuItem.click(function () {
-        imgSrc = $(this).next().attr("src");
-        $("#aside-image").attr("src", imgSrc).removeAttr("class");
-            });
-  //};
+                var $menu = $("#menu");
+                //var $espresso = $("#espresso");
+                $("<p>Click a menu item to view a picture.</p>").insertAfter($menu.children().last());
 
+                //showImg: function () {
+
+                //};
 
                 $("<h3>Beverages</h3>").insertAfter($menu.children().last());
                 $('<ul id="espresso">').insertAfter($menu.children().last());
@@ -37,27 +30,27 @@
                 $('<ul id="bakery">').insertAfter($menu.children().last());
 
                 if (count > 0) {
-            $.each(menuItem, function (i, obj) {
+                    $.each(menuItem, function (i, obj) {
 
-                    if (obj.type === 'beverage') {
+                        if (obj.type === 'beverage') {
 
                             $('#espresso').append('<li>' + '<span>' + obj.name + '  ' + obj.price + '</span>' + '</li>');
-            $('span').attr("class", "menu-item");
-                    var img = $('<img />', {
-                        id: obj.name,
-                        src: obj.img
+                            $('span').attr("class", "menu-item");
+                            var img = $('<img />', {
+                                id: obj.name,
+                                src: obj.img
                             });
 
                             img.appendTo($('#espresso').children().last());
                         }
 
-                if (obj.type === 'bakery') {
+                        if (obj.type === 'bakery') {
 
                             $('#bakery').append('<li>' + '<span>' + obj.name + '  ' + obj.price + '</span>' + '</li>');
-        $('span').attr("class", "menu-item");
-                    var img = $('<img />', {
-                        id: obj.name,
-                        src: obj.img
+                            $('span').attr("class", "menu-item");
+                            var img = $('<img />', {
+                                id: obj.name,
+                                src: obj.img
                             });
                             img.appendTo($('#bakery').children().last());
                         }
@@ -65,25 +58,32 @@
                     });
                 }
 
-            });
+                var $menuItem = $(".menu-item");
+                $menuItem.next().attr("class", "hide");
+                console.log($menuItem);
 
+                $menuItem.click(function () {
+                    imgSrc = $(this).next().attr("src");
+                    $("#aside-image").attr("src", imgSrc).removeAttr("class");
+                });
+            });
         },
 
 
         //coffeeShopApp.weeklySpecials();
 
-    weeklySpecials: function (data) {
-    $("#specials p").remove();
+        weeklySpecials: function (data) {
+            $("#specials p").remove();
 
-    $.getJSON('data/specials.json', function (data) {
-            var specialsItem = data.specials,
-            count = specialsItem.length;
+            $.getJSON('data/specials.json', function (data) {
+                var specialsItem = data.specials,
+                    count = specialsItem.length;
 
-            if (count > 0) {
-            $.each(specialsItem, function (i, obj) {
+                if (count > 0) {
+                    $.each(specialsItem, function (i, obj) {
 
 
-            $('#specials').append('<p>' + obj.description + '<p>');
+                        $('#specials').append('<p>' + obj.description + '<p>');
 
 
                     });
@@ -98,10 +98,10 @@
 
     coffeeShopApp.buildMenu();
     coffeeShopApp.weeklySpecials();
-    
-//coffeeShopApp.createRegisterForm()
-//function checkRegistation() {
-        
+
+    //coffeeShopApp.createRegisterForm()
+    //function checkRegistation() {
+
     $("#register").submit(function () {
         var fullname = $("#fullname").val();
         var text = $("#email").val();
@@ -111,15 +111,15 @@
             $("#register").before("<p>Please give your email for contact information!</p>");
         }
         //event.preventDefault();
-            return false;
-        
-                          
- //$("#register-button").click(checkRegistation)
-        
+        return false;
+
+
+        //$("#register-button").click(checkRegistation)
+
     });
-    
-   
-    
+
+
+
     // Add code to get the menu data using Ajax
     // & add the menu items to the appropriate section
     // An example:
