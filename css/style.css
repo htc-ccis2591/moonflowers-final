@@ -1,20 +1,23 @@
 /* type selectors */
-article, aside, figure, figcaption, footer, header, nav, section {
+article, aside, figure, figcaption, footer, header, nav, section, img {
     display: block;
 }
 
 body {
-  margin-top: 50px;
+    background-color: #FFFFCC;
+    margin-top: 50px;
 	font-family: Papyrus, fantasy;
 }
 
 header {
-  font-size: 125%;
-  padding: 20px;
+    font-size: 125%;
+    padding: 20px;
+    background-color: #FFFFCC;
+    background-image: linear-gradient(to left, #FFFFCC, #0099CC);
 }
 
 section h2 {
-  background-color: #cccccc;
+  background-color: #CC9966;
   width: 100%;
   border-radius: 7px;
   padding: 10px;
@@ -29,23 +32,47 @@ section {
 	padding: 15px 25px;
 }
 
-.menu-item {
-  font-size: 120%;
-	cursor: pointer;
+ul {
+	padding-left: 45px;
 }
 
-img {
-    display: block;
+li {
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    padding-bottom: .25em;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 15px;
+    border-color: #66CCCC;
+    
+}
+
+.menu-item {
+    font-size: 120%;
+	cursor: pointer;
+    color: chocolate;
 }
 
 .hide {
 	display: none;
 }
 
-ul {
-	padding-left: 45px;
+.specialItem {
+    font-size: 14px;
+    color: chocolate;
 }
 
-li {
-	padding-bottom: .25em;
+#newsletterEntry {
+    float: left;
+    max-width: 300px
+}
+
+#aside-image {
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 15px;
+    border-color: #66CCCC;
 }
