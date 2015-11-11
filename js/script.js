@@ -1,4 +1,5 @@
-(function ($) {
+jQuery(document).ready(function ($) {
+	{
 
 	var moonflowerApp = {
 			buildMenu: function (data) {
@@ -90,5 +91,6 @@
 			return true;
 		}
 
-	}}
-	);
+    });
+	
+	));
