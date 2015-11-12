@@ -68,6 +68,7 @@
  });
 },
 //       Add a method to validate the registration form
+//      Validation
       registerEmail: function() {
       var vEmail = $("#email").val();
       var vName = $("#name").val();
