@@ -5,16 +5,19 @@ article, aside, figure, figcaption, footer, header, nav, section {
 
 body {
   margin-top: 50px;
-	font-family: Papyrus, fantasy;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+form {
+    margin-left: 50px;
+}
 header {
   font-size: 125%;
   padding: 20px;
 }
 
 section h2 {
-  background-color: #cccccc;
+  background-color: lightgrey;
   width: 100%;
   border-radius: 7px;
   padding: 10px;
