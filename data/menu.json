@@ -46,7 +46,7 @@
         "name" : "Latte",
         "type" : "beverage",
         "price" : "$3.50",
-        "img" : "images/latte.jbp"
+        "img" : "images/latte.jpg"
       },
       {
         "name" : "Mocha",
