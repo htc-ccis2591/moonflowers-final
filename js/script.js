@@ -70,16 +70,18 @@
 //       Add a method to validate the registration form
       registerEmail: function() {
       var vEmail = $("#email").val();
-      var vName = $("#name").val();      
+      var vName = $("#name").val();
+       
       console.log(vEmail);
       console.log(vName);  
       if(vEmail === ""){
-      $("#register").addClass("red").before("<p>Email can't be empty!</p>");
+          
+      $("#register").before("<p>Email can't be empty!</p>");
   }
           
       
       if((vName).length <2){
-       $("#register").before("<p>Name can't be less then 2 characters!</p>").addClass("red");   
+       $("#register").before("<p>Name can't be less then 2 characters!</p>");   
       }
           return false;
           
