@@ -5,72 +5,73 @@
         "name" : "Assorted Muffins",
         "type" : "bakery",
         "price" : "$1.75",
-        "img" : "muffins.jpg"
+        "img" : "images/muffins.jpg"
       },
       {
         "name" : "Fresh Baked Brownie",
         "type" : "bakery",
         "price" : "$2.00",
-        "img" : "brownies.jpg"
+        "img" : "images/brownies.jpg"
       },
       {
         "name" : "Fresh Ground Coffee",
         "type" : "beverage",
-        "price" : "$2.25"
+        "price" : "$2.25",
+        "img" : "images/americano.jpg"
       },
       {
         "name" : "Assorted Scones",
         "type" : "bakery",
         "price" : "$2.50",
-        "img" : "scones.jpg"
+        "img" : "images/scones.jpg"
       },
       {
         "name" : "Espresso",
         "type" : "beverage",
         "price" : "$2.75",
-        "img" : "espresso.jpg"
+        "img" : "images/espresso.jpg"
       },
       {
         "name" : "Americano",
         "type" : "beverage",
         "price" : "$2.85",
-        "img" : "americano.jpg"
+        "img" : "images/americano.jpg"
       },
       {
         "name" : "Cappuccino",
         "type" : "beverage",
         "price" : "$3.50",
-        "img" : "cappuccino.jpg"
+        "img" : "images/cappuccino.jpg"
       },
       {
         "name" : "Latte",
         "type" : "beverage",
         "price" : "$3.50",
-        "img" : "latte.jbp"
+        "img" : "images/latte.jpg"
       },
       {
         "name" : "Mocha",
         "type" : "beverage",
         "price" : "$3.75",
-        "img" : "mocha.jpg"
+        "img" : "images/mocha.jpg"
       },
       {
         "name" : "Breve",
         "type" : "beverage",
         "price" : "$3.75",
-        "img" : "breve.jpg"
+        "img" : "images/breve.jpg"
       },
       {
         "name" : "Slice of Chocolate Cake",
         "type" : "bakery",
         "price" : "$3.75",
-        "img" : "choc-cake.jpg"
+        "img" : "images/choc-cake.jpg"
       },
       {
         "name" : "Slice of Strawberry Cream Cake",
         "type" : "bakery",
         "price" : "$3.75",
-        "img" : "white-cake.jpg"
+        "img" : "images/white-cake.jpg"
       }
     ]
 }

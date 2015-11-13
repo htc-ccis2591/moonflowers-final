@@ -1,36 +1,171 @@
-( function() {
+(function () {
+
+    var coffeeShopApp = {
+
+        buildMenu: function (data) {
+
+            var $menu = $("#menu");
+
+            $("<p><b>Click on menu item to see a picture of the item!</b></p>").insertAfter($menu.children().last());
+
+            $("<h3>Beverages</h3>").insertAfter($menu.children().last());
+            $('<ul id="espresso">').insertAfter($menu.children().last());
+
+            $("<h3>Bakery</h3>").insertAfter($menu.children().last());
+            $('<ul id="bakery">').insertAfter($menu.children().last());
+
+            coffeeShopApp.menuItemsAjaxCall();
+        },
 
 
 
-  var coffeeShopApp = {
-      buildMenu : function( data ) {
+        displayWeeklySpecials: function (data) {
 
-          var $menu = $("#menu");
-          $("<h3>Beverages</h3>").insertAfter($menu.children().last());
-          $('<ul id="espresso">').insertAfter($menu.children().last());
+            var $weeklySpecial = $("#specials").css({
+                    "color": "red"
+                }),
+                $target = $("#specials h2").children().first();
 
-          $("<h3>Bakery</h3>").insertAfter($menu.children().last());
-          $('<ul id="bakery">').insertAfter($menu.children().last());
+            var specials = data.specials,
+                count = specials.length;
 
-          // Add code to get the menu data using Ajax
-          // & add the menu items to the appropriate section
-          // An example:
-          // <li><span class="menu-item">Cappuccino $4.00</span><img src="images/cappuccino.jpg"></li>
+            if (count > 0) {
 
-      }
+                $.each(specials, function (i, obj) {
 
-      // Add a new method to add the weekly specials
+                    var description = obj.description;
 
-      // Add a method to validate the registration form
-      // There should be both a name and a valid email
+                    $("<p class='specialItem'>").text(description).insertAfter($weeklySpecial).css({
+                        "color": "red"
+                    });
+                    //$("p[.specialItem]").insertAfter($target);
 
-  }
+                });
+            }
+            return;
+        },
 
-  // Uncomment the line below to build the menu
-  //coffeeShopApp.buildMenu();
+        displayMenu: function (data) {
 
-  // Call the methods to add the weekly specials
+            var $beverageMenu = $("#espresso"),
+                $bakeryMenu = $("#bakery"),
+                $beverageRemove = $("#espresso").prev(),
+                $bakeryRemove = $("#bakery").prev();
 
-  // Add code for the form submit button it should validate the form
+            var menu = data.menu,
+                count = menu.length;
 
-}())
+
+            if (count > 0) {
+
+                $.each(menu, function (i, obj) {
+
+                    var imgSrc = obj.img,
+                        name = obj.name,
+                        price = obj.price,
+                        bakery = 0;
+
+                    if ('beverage' === obj.type) {
+
+                        $("<li>").append($("<span>", {
+                            class: "menu-item",
+                            text: (name + " " + price)
+                        })).append($("<img>", {
+                            class: "hide",
+                            src: imgSrc
+                        })).insertAfter($beverageMenu).appendTo($beverageMenu);
+
+                    }
+
+                    if ('bakery' === obj.type) {
+
+                        $("<li>").append($("<span>", {
+                            class: "menu-item",
+                            text: (name + " " + price)
+                        })).append($("<img>", {
+                            class: "hide",
+                            src: imgSrc
+                        })).insertAfter($bakeryMenu).appendTo($bakeryMenu);
+
+                    }
+
+                    coffeeShopApp.showImage();
+
+                });
+
+            }
+
+        },
+
+        showImage: function () {
+
+            var $MenuItem = $(".menu-item");
+
+            $($MenuItem).click(function () {
+
+                imgSrc = $(this).next().attr("src");
+                $(this).css({
+                    "color": "red"
+                })
+
+                $("#aside-image").attr("src", imgSrc).removeAttr("class");
+
+            })
+
+        },
+
+
+        menuItemsAjaxCall: function () {
+
+            $(document).ready(function () {
+
+                $.getJSON("data/menu.json", function (data) {
+
+                    coffeeShopApp.displayMenu(data);
+
+                });
+
+            });
+
+        },
+
+        weeklySpecialsAjaxCall: function () {
+
+            $(document).ready(function () {
+
+                $.getJSON("data/specials.json", function (data) {
+
+                    coffeeShopApp.displayWeeklySpecials(data);
+
+                });
+
+            });
+
+        },
+
+        validSignUp: function () {
+            $(document).ready(function () {
+
+                $("#signUp").submit(function () {
+                    var fullName = $("#fullName").val();
+                    var email = $("#email").val();
+
+                    if (fullName === "" & email === "") {
+                        $("#signUp").before("<p>Sign up here!</p>");
+                        return false;
+                    } else {
+                        $("#fullName").empty();
+                        $("#email").empty();
+                        return true;
+                    }
+
+                });
+
+            });
+        }
+    }
+    coffeeShopApp.buildMenu();
+    coffeeShopApp.weeklySpecialsAjaxCall();
+    coffeeShopApp.validSignUp();
+
+})();
